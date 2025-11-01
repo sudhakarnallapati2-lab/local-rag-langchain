@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  rag-app:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./vectorstore:/app/vectorstore
+    environment:
+      - OLLAMA=true  # set to "true" to default to Ollama offline mode inside container
+      - PYTHONUNBUFFERED=1
